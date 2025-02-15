@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        #fact-container {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            overflow-wrap: break-word;
+        }
+
+        #fact-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #fact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="fact-container">
+        <p id="fact"></p>
+    </div>
+    <button id="fact-button">Generate Fact</button>
+
+    <script>
+        const facts = [
+            "Crocodiles are reptiles that belong to the order Crocodylia, which also includes alligators, caimans, and gharials.",
+            "They have been around for over 200 million years, surviving the dinosaur extinction and many other changes on Earth.",
+            "Crocodiles can be found in a variety of habitats, including rivers, lakes, wetlands, and sometimes in brackish water.",
+            "The saltwater crocodile is the largest living reptile, with some males reaching over 20 feet (6 meters) in length.",
+            "Crocodiles have a powerful bite, which is achieved by large jaw muscles. They have one of the strongest bites in the animal kingdom.",
+            "Their skin is tough and covered in scales that act as armor. These scales are made of keratin, the same material as human fingernails.",
+            "Crocodiles are carnivorous, feeding on fish, birds, mammals, and occasionally smaller crocodiles.",
+            "They are known for their 'death roll' – a technique used to kill and dismember prey by spinning their bodies vigorously.",
+            "Crocodiles have a sophisticated heart with a unique four-chambered structure that allows them to control blood flow and oxygen efficiently.",
+            "Despite their slow appearance on land, crocodiles can move very quickly over short distances, both in water and on land."
+        ];
+
+        document.getElementById('fact-button').addEventListener('click', function() {
+            const factIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('fact').textContent = facts[factIndex];
+
+            // Change button color
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+            // Move button to a new random position
+            this.style.position = 'absolute';
+            this.style.left = `${Math.random() * (window.innerWidth - this.offsetWidth)}px`;
+            this.style.top = `${Math.random() * (window.innerHeight - this.offsetHeight)}px`;
+        });
+    </script>
+</body>
+</html>
